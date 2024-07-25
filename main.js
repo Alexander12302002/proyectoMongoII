@@ -130,7 +130,7 @@ const data = {
  */
 
 // ! Permitir la actualización del rol de un usuario (por ejemplo, cambiar de usuario estándar a VIP, o viceversa).
-//console.log(await mongo.actualizarRol("66a868348da716e4dc8f9227", "usuarioVip"))
+//console.log(await cliente.actualizarRol("66a868348da716e4dc8f9227", "usuarioVip"))
 
 // ! Permitir la consulta de todos los usuarios del sistema, con la posibilidad de filtrar por rol (VIP, estándar o administrador).
 console.log(await cliente.consultarUsuarios("usuarioEstandar"))
