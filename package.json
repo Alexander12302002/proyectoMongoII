@@ -1,7 +1,6 @@
 {
   "name": "proyectomongodbii",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "type": "module",
   "scripts": {
@@ -10,6 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "mongodb": "^6.8.0"
   }
