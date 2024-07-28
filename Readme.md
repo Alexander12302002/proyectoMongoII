@@ -45,6 +45,8 @@
 
   - **API para Reservar Asientos:** Permitir la selección y reserva de asientos para una proyección específica.
 
+2. Compra de Boletos:
+
 ##### setComprarBoletas(JsonDatos)
 
 - ##### Descripción:
@@ -79,3 +81,25 @@ Un booleano que indica si el asiento ya ha sido comprado:
 
   - `true`: El asiento ya ha sido comprado.
   - `false`: El asiento está disponible.
+
+3. Compra de Boletos:
+
+#### setReservar(JsonReserva)
+
+- ##### Descripción:
+
+  Esta función asincrónica realiza la reserva de un asiento para una función específica, verificando previamente que el asiento, el cliente y la función existan y que el asiento no esté ya reservado.
+
+- ##### Parámetros:
+
+  - `id_cliente`: El ID del cliente que desea reservar el asiento.
+  - `id_asiento`: El ID del asiento que se desea reservar.
+  - `id_funcion`: El ID de la función para la que se desea reservar el asiento.
+  - `fecha_reserva`: La fecha en la que se realiza la reserva.
+
+- ##### Retorno:
+
+  Un objeto que indica el resultado de la operación de reserva:
+
+  - `Success`: La reserva fue creada con éxito.
+  - `Error`: Mensaje de error si ocurrió un problema durante el proceso.
