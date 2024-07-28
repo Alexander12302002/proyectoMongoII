@@ -60,3 +60,22 @@
 - ##### Retorno:
 
   Un objeto que contiene el resultado de la inserción del nuevo boleto o mensajes de error si se encuentran problemas durante el proceso.
+
+  - **API para Verificar Disponibilidad de Asientos:** Permitir la consulta de la disponibilidad de asientos en una sala para una proyección específica.
+
+#### getVerificacionAsiento(id_asiento)
+
+- ##### Descripción:
+
+  Esta función asincrónica verifica si un asiento específico ya ha sido comprado para una función.
+
+- ##### Parámetros:
+
+  - `id_asiento`: El ID del asiento que se desea verificar.
+
+- ##### Retorno:
+
+Un booleano que indica si el asiento ya ha sido comprado:
+
+  - `true`: El asiento ya ha sido comprado.
+  - `false`: El asiento está disponible.
