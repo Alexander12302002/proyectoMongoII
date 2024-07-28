@@ -48,11 +48,8 @@ export class boletas extends Connect{
                     return;
                 }
                 try{
-                     // Verificar si el asiento ya ha sido comprado para esta función
-                    let boletoExistente = await this.collection.findOne({
-                        id_asiento: new ObjectId(id_asiento)
-                    })
-                    // ! Verificar si el asiento ya está ocupado
+                    // Verificar si el asiento ya ha sido comprado
+                    let boletoExistente = await this.getVerificacionAsiento(id_asiento);
                     if (boletoExistente) {
                         console.log("El asiento ya ha sido comprado para esta función");
                         return;
@@ -78,5 +75,25 @@ export class boletas extends Connect{
             // * Error al intentar verificar el movimiento
             console.log("Error a la hora de verificar el movimiento verifique los datos", error)
         }
+    }
+
+    /**
+     * @function getVerificacionAsiento
+     * @description Verifica si el asiento ya ha sido comprado.
+     * @param {string} id_asiento - ID del asiento.
+     * @returns {Promise<boolean>} `true` si el asiento ya ha sido comprado, `false` en caso contrario.
+     */
+    async getVerificacionAsiento(id_asiento){
+        try{
+            // Verificar si el asiento ya ha sido comprado para esta función
+           let boletoExistente = await this.collection.findOne({
+               id_asiento: new ObjectId(id_asiento)
+           })
+           // ! Verificar si el asiento ya está ocupado
+            return boletoExistente !== null;
+       } catch (error){
+           // * Error al intentar verificar  el boleto
+           console.log("Error a la hora de verificar el boleto verifique los datos", error)
+       }   
     }
 } 
