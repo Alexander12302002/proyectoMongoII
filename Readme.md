@@ -42,3 +42,21 @@
 
   **titulo**: El título de la película.
   **sinopsis**: La sinopsis de la película.
+
+  - **API para Reservar Asientos:** Permitir la selección y reserva de asientos para una proyección específica.
+
+##### setComprarBoletas(JsonDatos)
+
+- ##### Descripción:
+
+  Esta función asincrónica permite la compra de un boleto verificando la existencia del movimiento y asiento, y asegurándose de que el asiento no esté ya comprado.
+
+- ##### Parámetros:
+
+  - `id_movimiento`: ID del movimiento.
+  - `id_asiento`: ID del asiento.
+  - `fecha_adquisicion`: Fecha de adquisición del boleto.
+
+- ##### Retorno:
+
+  Un objeto que contiene el resultado de la inserción del nuevo boleto o mensajes de error si se encuentran problemas durante el proceso.
