@@ -58,4 +58,7 @@ const JsonReserva = {
     fecha_reserva: '2024-07-01T18:00:00.000+00:00'
 };
 // ! Permitir la selección y reserva de asientos para una proyección específica.
-console.log(await mongo.setReservar(JsonReserva))
+//console.log(await mongo.setReservar(JsonReserva))
+
+// ! Permitir la cancelación de una reserva de asiento ya realizada. 
+console.log(await mongo.cancelarReserva("66a69db7c95fdf47d22d6970"))

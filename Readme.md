@@ -103,3 +103,20 @@ Un booleano que indica si el asiento ya ha sido comprado:
 
   - `Success`: La reserva fue creada con éxito.
   - `Error`: Mensaje de error si ocurrió un problema durante el proceso.
+
+#### cancelarReserva(id_reserva)
+
+- ##### Descripción:
+
+  Esta función asincrónica cancela una reserva específica mediante su ID.
+
+- ##### Parámetros:
+
+  - `id_reserva`: El ID de la reserva que se desea cancelar.
+
+- ##### Retorno:
+
+  Un objeto que indica el resultado de la operación de cancelación:
+
+  - `Success`: Mensaje indicando que la reserva fue cancelada con éxito.
+  - `Error`: Mensaje de error si ocurrió un problema durante el proceso o si la reserva no fue encontrada.

@@ -84,4 +84,30 @@ export class reservar extends Connect{
             console.log("Error a la hora de realizar la reserva. Verifique los datos", error);
         }
     }
+
+    async cancelarReserva(id_reserva) {
+        try {
+            // Verificar que id_reserva es válido
+            if (!ObjectId.isValid(id_reserva)) {
+                console.log("ID de reserva no válido");
+                return { error: "ID de reserva no válido" };
+            }
+    
+            // Intentar eliminar la reserva
+            let res = await this.collection.deleteOne({ _id: new ObjectId(id_reserva) });
+    
+            // Verificar si se eliminó alguna reserva
+            if (res.deletedCount === 0) {
+                console.log("No se encontró la reserva");
+                return { error: "No se encontró la reserva" };
+            }
+    
+            console.log("Reserva cancelada con éxito");
+            return { success: "Reserva cancelada con éxito" };
+    
+        } catch (error) {
+            console.log("Error al cancelar la reserva", error);
+            return { error: "Error al cancelar la reserva" };
+        }
+    }
 }
