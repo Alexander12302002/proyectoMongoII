@@ -1,4 +1,5 @@
 import { Connect } from "../../helpers/db/connect.js";
+import { ObjectId } from "mongodb";
 
 export class peliculas extends Connect{
     constructor(){
@@ -58,5 +59,29 @@ export class peliculas extends Connect{
         } catch (error){
             console.error('Error al insertar al realizar la consulta', error);
         }
+    }
+
+    //Permitir la consulta de información detallada sobre una película específica,
+    //incluyendo sinopsis.
+    /**
+     * Obtiene una película de la base de datos según su ID.
+     * 
+     * @param {string} idPelicula - El ID de la película que se desea obtener.
+     * @returns {Promise<Array>} Un arreglo que contiene la película encontrada, o un arreglo vacío si no se encuentra ninguna película con el ID proporcionado.
+     */
+    async  getPelicula(idPelicula){
+      try{
+        let res = await this.collection.find({ 
+          _id: new ObjectId(idPelicula)
+        },{projection:
+            { 
+              _id: 0,
+              duracion: 0, 
+              genero: 0
+            }}).toArray()
+        return res
+      } catch (error){
+        console.log("Error en la consult, verifique el id", error)
+      }
     }
 }
