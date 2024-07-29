@@ -120,3 +120,21 @@ Un booleano que indica si el asiento ya ha sido comprado:
 
   - `Success`: Mensaje indicando que la reserva fue cancelada con éxito.
   - `Error`: Mensaje de error si ocurrió un problema durante el proceso o si la reserva no fue encontrada.
+
+#### getValidarTarjetas(id_cliente)
+
+- ##### Descripción:
+
+  Esta función asincrónica recupera el estado de una tarjeta asociada a un cliente específico mediante su ID de usuario.
+
+- ##### Parámetros:
+
+  id_cliente: El ID del cliente cuya tarjeta se desea consultar. Este ID se convierte en un ObjectId para la búsqueda en la base de datos.
+
+- ##### Retorno:
+
+  Un mensaje que indica el estado de la tarjeta o un mensaje de error en caso de problemas:
+  
+  - `La tarjeta se encuentra: <estado>`: Mensaje indicando el estado actual de la tarjeta asociada al cliente.
+  - `No se encontraron tarjetas para el id proporcionado.`: Mensaje si no se encuentran tarjetas asociadas al ID proporcionado.
+  - `Error al buscar la tarjeta. Verifique el id.`: Mensaje de error si ocurre un problema durante la búsqueda en la base de datos.
