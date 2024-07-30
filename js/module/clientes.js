@@ -167,4 +167,48 @@ export class clientes extends Connect{
                 return { mensaje: "Error en la actualización del rol", error: error.message };
             }
         }
+
+/**
+ * Consulta usuarios en la base de datos según un rol específico.
+ * Si no se proporciona un rol, se obtienen todos los usuarios.
+ * 
+ * @param {string} [rol] - El rol de los usuarios a consultar (opcional)
+ * @returns {Promise<object[]>} Una promesa que resuelve con un arreglo de objetos de usuario
+ */
+  async consultarUsuarios(rol) {
+    try {
+      // Filtro por defecto para obtener todos los usuarios
+      let filtro = {};
+
+      // Si se proporciona un rol, agregarlo al filtro después de validar su validez
+      if (rol) {
+        /**
+         * Roles válidos para filtrar usuarios
+         * @type {string[]}
+         */
+        const rolesValidos = ['usuarioEstandar', 'usuarioVip', 'Administrador'];
+        
+        // Validar si el rol proporcionado es válido
+        if (!rolesValidos.includes(rol)) {
+          throw new Error('Rol inválido');
+        }
+        
+        // Agregar el rol válido al filtro
+        filtro.rol = rol;
+      }
+
+      // Consultar la base de datos con el filtro aplicado
+      const usuarios = await this.collection.find(filtro).toArray();
+
+      // Devolver el arreglo de usuarios consultados
+      return usuarios;
+
+    } catch (error) {
+      // Loguear el error en la consola
+      console.error("Error al consultar usuarios:", error);
+      
+      // Lanzar un nuevo error con un mensaje más informativo
+      throw new Error(`Error en la consulta de usuarios: ${error.message}`);
+    }
+  }
 }

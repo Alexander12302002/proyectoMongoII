@@ -261,4 +261,29 @@ Un booleano que indica si el asiento ya ha sido comprado:
     }
     ```
 
-- ##### 
+#### consultarUsuarios(rol)
+
+- ##### **Descripción:**
+
+  Esta función asincrónica permite consultar la información de usuarios en el sistema, con la opción de filtrar por un rol específico. Realiza una consulta en la base de datos para obtener datos de usuarios que coincidan con el filtro proporcionado. La consulta incluye todos los campos de la colección `cliente`.
+
+- ##### **Parámetros:**
+
+  `rol`: Un string opcional que representa el rol de los usuarios que se desean consultar. Si se proporciona, la función valida su validez y lo utiliza para filtrar los resultados. Los roles válidos son `usuarioEstandar`, `usuarioVip`, y `Administrador`.
+
+- ##### **Retorno:**
+
+  Una promesa que se resuelve con un array que contiene la información de los usuarios consultados. Cada objeto de usuario incluye los siguientes campos:
+
+  - `nombre`: Nombre del usuario.
+  - `apellido`: Apellido del usuario.
+  - `nick`: Nombre de usuario o alias.
+  - `email`: Correo electrónico del usuario.
+  - `telefono`: Número de teléfono del usuario.
+  - `cedula`: Documento de identificación del usuario.
+  - `rol`: Rol del usuario.
+
+- ##### **Errores:**
+
+  - Si se proporciona un rol inválido, la función lanza un error con el mensaje "Rol inválido".
+  - Si ocurre un error durante la consulta a la base de datos, la función lanza un error con un mensaje que incluye el mensaje original del error.
