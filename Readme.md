@@ -210,3 +210,55 @@ Un booleano que indica si el asiento ya ha sido comprado:
     - `codigo_usuario`: Código de usuario asociado a la tarjeta.
     - `fecha_expedicion`: Fecha en que se emitió la tarjeta.
     - `estado`: Estado de la tarjeta (por ejemplo, `Activa` o `Inactiva`).
+
+#### actualizarRol(idUsuario, nuevoRol)
+
+- ##### **Descripción:**
+
+  Esta función asincrónica permite actualizar el rol de un usuario en la base de datos. Primero, verifica si el nuevo rol es válido. Luego, actualiza el rol del usuario en la colección de la base de datos y, adicionalmente, intenta actualizar el rol del usuario en el sistema de autenticación de MongoDB. Finalmente, proporciona un mensaje de éxito o error dependiendo del resultado de la operación.
+
+- ##### **Parámetros:**
+
+  - `idUsuario`: Un string que representa el identificador único del usuario en formato de cadena. Este ID se utiliza para encontrar al usuario en la colección de la base de datos y para actualizar su rol.
+  - `nuevoRol`: Un string que especifica el nuevo rol que se asignará al usuario. Los valores válidos son: `'usuarioEstandar'`, `'usuarioVip'`, o `'Administrador'`.
+
+- ##### **Retorno:**
+
+  Una promesa que se resuelve con un objeto que puede tener uno de los siguientes formatos:
+
+  - **Mensaje de éxito:**
+
+    ```json
+    jsonCopy code{
+      "mensaje": "El rol del usuario fue actualizado exitosamente",
+      "usuario": {
+        "idUsuario": "<idUsuario>",
+        "nuevoRol": "<nuevoRol>"
+      }
+    }
+    ```
+
+  - **Mensaje de error:**
+
+    ```json
+    jsonCopy code{
+      "mensaje": "Rol inválido",
+      "error": "El rol especificado no es válido."
+    }
+    ```
+
+    ```json
+    jsonCopy code{
+      "mensaje": "Usuario no encontrado",
+      "error": "No se encontró un usuario con el ID proporcionado."
+    }
+    ```
+
+    ```json
+    jsonCopy code{
+      "mensaje": "Error en la actualización del rol",
+      "error": "<error.message>"
+    }
+    ```
+
+- ##### 
