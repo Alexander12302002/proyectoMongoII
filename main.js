@@ -103,3 +103,13 @@ const data = {
 
 // !  Permitir la creación de nuevos usuarios en el sistema, asignando roles y privilegios específicos (usuario estándar, usuario VIP o administrador).
 //console.log(await mongo.crearUsuario(data))
+
+/**
+ * Obtiene detalles completos de un usuario específico, incluyendo su rol y el estado de su tarjeta VIP.
+ * 
+ * @param {string} idUsuario - El identificador único del usuario en formato de cadena.
+ * @returns {Promise<Array>} - Una promesa que se resuelve con un array que contiene la información detallada del usuario.
+ * ? 66a66409c95fdf47d22d694b
+ */
+// ! Permitir la consulta de información detallada sobre un usuario, incluyendo su rol y estado de tarjeta VIP.
+console.log(await mongo.detalleUsuario("66a66409c95fdf47d22d694b"))
