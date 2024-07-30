@@ -6,17 +6,22 @@ import { clientes } from "./js/module/clientes.js";
 
 /**
  * @file main.js
- * @description Archivo principal para interactuar con la API de compra de boletos y consulta de películas.
+ * @description Archivos principales para interactuar con la API
  */
-let mongo = new clientes();
 
+// Instanciar clases para interactuar con la API
+//    let pelicula = new peliculas();
+//    let boleta = new boletas();
+//    let reserva = new reservar();
+//    let tarjeta = new tarjetas();
+//    let cliente = new clientes();
 //Selección de Películas
 
 // ! Consultar todas las películas disponibles en el catálogo con detalles como título, género, duración y horarios de proyección
-//console.log(await mongo.getAllPeliculasConLugarYDuracion());
+//console.log(await pelicula.getAllPeliculasConLugarYDuracion());
 
 // ! Consultar información detallada sobre una película específica, incluyendo sinopsis
-// console.log(await mongo.getPelicula("66a574a8e558765a8b22b046"));
+// console.log(await pelicula.getPelicula("66a574a8e558765a8b22b046"));
 
 //Compra de Boletos:
 /**
@@ -36,7 +41,7 @@ const JsonBoletos = {
 };
 
 // ! Permitir la compra de boletos para una película específica, incluyendo la selección de la fecha y la hora de la proyección.
-//console.log(await mongo.setComprarBoletas(JsonBoletos));
+//console.log(await boleta.setComprarBoletas(JsonBoletos));
 
 /**
  * @description Permitir la consulta de la disponibilidad de asientos.
@@ -44,7 +49,7 @@ const JsonBoletos = {
  * @returns {Promise<Object>} Resultado de la verificacion del boleto.
  */
 // ! Permitir la consulta de la disponibilidad de asientos en una sala para una proyección específica.
-//console.log(await mongo.getVerificacionAsiento(id_asiento));
+//console.log(await boleta.getVerificacionAsiento(id_asiento));
 
 //Asignación de Asientos
 
@@ -64,15 +69,15 @@ const JsonReserva = {
     fecha_reserva: '2024-07-01T18:00:00.000+00:00'
 };
 // ! Permitir la selección y reserva de asientos para una proyección específica.
-//console.log(await mongo.setReservar(JsonReserva))
+//console.log(await reserva.setReservar(JsonReserva))
 
 // ! Permitir la cancelación de una reserva de asiento ya realizada. 
-//console.log(await mongo.cancelarReserva("66a69db7c95fdf47d22d6970"))
+//console.log(await reserva.cancelarReserva("66a69db7c95fdf47d22d6970"))
 
 //Descuentos y Tarjetas VIP:
 
 // ! Permitir la verificación de la validez de una tarjeta VIP durante el proceso de compra.
-//console.log(await mongo.getValidarTarjetas("66a66409c95fdf47d22d694b"))
+//console.log(await tarjeta.getValidarTarjetas("66a66409c95fdf47d22d694b"))
 
 //Roles Definidos
 
@@ -102,7 +107,7 @@ const data = {
 };
 
 // !  Permitir la creación de nuevos usuarios en el sistema, asignando roles y privilegios específicos (usuario estándar, usuario VIP o administrador).
-//console.log(await mongo.crearUsuario(data))
+//console.log(await cliente.crearUsuario(data))
 
 /**
  * Obtiene detalles completos de un usuario específico, incluyendo su rol y el estado de su tarjeta VIP.
@@ -112,7 +117,7 @@ const data = {
  * ? 66a868348da716e4dc8f9227
  */
 // ! Permitir la consulta de información detallada sobre un usuario, incluyendo su rol y estado de tarjeta VIP.
-//console.log(await mongo.detalleUsuario("66a868348da716e4dc8f9227"))
+//console.log(await cliente.detalleUsuario("66a868348da716e4dc8f9227"))
 
 
 /**
@@ -125,4 +130,7 @@ const data = {
  */
 
 // ! Permitir la actualización del rol de un usuario (por ejemplo, cambiar de usuario estándar a VIP, o viceversa).
-console.log(await mongo.actualizarRol("66a868348da716e4dc8f9227", "usuarioVip"))
+//console.log(await mongo.actualizarRol("66a868348da716e4dc8f9227", "usuarioVip"))
+
+// ! Permitir la consulta de todos los usuarios del sistema, con la posibilidad de filtrar por rol (VIP, estándar o administrador).
+console.log(await cliente.consultarUsuarios("usuarioEstandar"))
