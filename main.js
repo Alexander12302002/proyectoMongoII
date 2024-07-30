@@ -109,7 +109,20 @@ const data = {
  * 
  * @param {string} idUsuario - El identificador único del usuario en formato de cadena.
  * @returns {Promise<Array>} - Una promesa que se resuelve con un array que contiene la información detallada del usuario.
- * ? 66a66409c95fdf47d22d694b
+ * ? 66a868348da716e4dc8f9227
  */
 // ! Permitir la consulta de información detallada sobre un usuario, incluyendo su rol y estado de tarjeta VIP.
-console.log(await mongo.detalleUsuario("66a66409c95fdf47d22d694b"))
+//console.log(await mongo.detalleUsuario("66a868348da716e4dc8f9227"))
+
+
+/**
+ * Actualiza el rol de un usuario en la base de datos.
+ * 
+ * @param {string} idUsuario - El identificador único del usuario en formato de cadena.
+ * @param {string} nuevoRol - El nuevo rol que se asignará al usuario. Los valores válidos son: 'usuarioEstandar', 'usuarioVip', 'Administrador'.
+ * @returns {Object} Mensaje de éxito o error y el usuario actualizado.
+ * ?66a868348da716e4dc8f9227, usuarioEstandar
+ */
+
+// ! Permitir la actualización del rol de un usuario (por ejemplo, cambiar de usuario estándar a VIP, o viceversa).
+console.log(await mongo.actualizarRol("66a868348da716e4dc8f9227", "usuarioVip"))

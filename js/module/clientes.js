@@ -125,4 +125,46 @@ export class clientes extends Connect{
           ]).toArray()
         return res // Retorna el resultado de la consulta
     }
+
+    /**
+     * Actualiza el rol de un usuario en la base de datos.
+     * 
+     * @param {string} idUsuario - El identificador único del usuario en formato de cadena.
+     * @param {string} nuevoRol - El nuevo rol que se asignará al usuario. Los valores válidos son: 'usuarioEstándar', 'usuarioVip', 'administrador'.
+     * @returns {Object} Mensaje de éxito o error y el usuario actualizado.
+     */
+        async actualizarRol(idUsuario, nuevoRol) {
+            const rolesValidos = ['usuarioEstandar', 'usuarioVip', 'Administrador'];
+            let usuario = await this.collection.find({_id: new ObjectId(idUsuario)},{}).toArray()
+            // Verificar que el nuevo rol sea válido
+            if (!rolesValidos.includes(nuevoRol)) {
+                return { mensaje: "Rol inválido", error: "El rol especificado no es válido." };
+            }
+            
+            try {
+                // Actualizar el rol del usuario en la base de datos
+                const resultado = await this.collection.updateOne(
+                    { _id: new ObjectId(idUsuario) },
+                    { $set: { rol: nuevoRol } }
+                );
+                
+                // Verificar si el usuario fue encontrado y actualizado
+                if (resultado.matchedCount === 0) {
+                    return { mensaje: "Usuario no encontrado", error: "No se encontró un usuario con el ID proporcionado." };
+                }
+
+                // Actualizar el rol del usuario en el sistema de autenticación de MongoDB
+                await this.db.command({
+                  updateUser: usuario[0].nick, 
+                  roles: [
+                      { role: nuevoRol, db: process.env.MONGO_DB }
+                  ]
+              });
+        
+                return { mensaje: "El rol del usuario fue actualizado exitosamente", usuario: { idUsuario, nuevoRol } };
+            } catch (error) {
+                console.log("Error al actualizar el rol del usuario:", error);
+                return { mensaje: "Error en la actualización del rol", error: error.message };
+            }
+        }
 }
