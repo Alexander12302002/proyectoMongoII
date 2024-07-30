@@ -172,3 +172,41 @@ Un booleano que indica si el asiento ya ha sido comprado:
     - `"El usuario fue creado"`: Si el usuario fue creado exitosamente en la base de datos y en el sistema de autenticación de MongoDB.
 
   - `usuario`: El objeto de usuario que fue creado o el objeto que causó el conflicto (si ya existía).
+
+#### detalleUsuario(idUsuario)
+
+- ##### **Descripción:**
+
+  Esta función asincrónica permite consultar la información detallada de un usuario específico en el sistema. Realiza una agregación en MongoDB para obtener datos del usuario junto con el estado de su tarjeta VIP, si existe. La consulta incluye el nombre, apellido, nick, email, teléfono, cédula, rol del usuario, y los detalles de la tarjeta asociada, como el código de usuario, la fecha de expedición y el estado de la tarjeta.
+
+- ##### **Parámetros:**
+
+  `idUsuario`: Un string que representa el identificador único del usuario en formato de cadena. Este ID se utiliza para buscar el usuario en la colección `cliente` y recuperar la información relacionada con la tarjeta del usuario en la colección `tarjeta`.
+
+- ##### **Retorno:**
+
+  Una promesa que se resuelve con un array que contiene la información detallada del usuario en el siguiente formato:
+
+  - `nombre`: Nombre del usuario.
+
+  - `apellido`: Apellido del usuario.
+
+  - `nick`: Nombre de usuario o alias.
+
+  - `email`: Correo electrónico del usuario.
+
+  - `telefono`: Número de teléfono del usuario.
+
+  - `cedula`: Documento de identificación del usuario.
+
+  - `rol`: Rol del usuario, que puede ser `usuarioEstándar`, `usuarioVip`, o `administrador`.
+
+  - ```
+    tarjeta
+    ```
+
+    : Objeto que contiene detalles de la tarjeta del usuario, si existe:
+
+    - `codigo_usuario`: Código de usuario asociado a la tarjeta.
+    - `fecha_expedicion`: Fecha en que se emitió la tarjeta.
+    - `estado`: Estado de la tarjeta (por ejemplo, `Activa` o `Inactiva`).
