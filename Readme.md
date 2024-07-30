@@ -138,3 +138,37 @@ Un booleano que indica si el asiento ya ha sido comprado:
   - `La tarjeta se encuentra: <estado>`: Mensaje indicando el estado actual de la tarjeta asociada al cliente.
   - `No se encontraron tarjetas para el id proporcionado.`: Mensaje si no se encuentran tarjetas asociadas al ID proporcionado.
   - `Error al buscar la tarjeta. Verifique el id.`: Mensaje de error si ocurre un problema durante la búsqueda en la base de datos.
+
+#### crearUsuario(usuario)
+
+- ##### **Descripción:**
+
+  Esta función asincrónica permite la creación de un nuevo usuario en el sistema. Verifica la existencia previa del usuario basándose en el `nick`, `cedula`, o `email`, y si no existe, lo inserta en la base de datos y en el sistema de autenticación de MongoDB.
+
+- ##### **Parámetros:**
+
+  `usuario`: Un objeto que contiene la información del nuevo usuario con los siguientes campos:
+
+  - `nombre`: Nombre del usuario.
+  - `apellido`: Apellido del usuario.
+  - `nick`: Nombre de usuario o alias.
+  - `email`: Correo electrónico del usuario.
+  - `telefono`: Número de teléfono del usuario.
+  - `id_tipo_de_categoria`: ID de la categoría del usuario, que se convierte en `ObjectId` para la búsqueda en la base de datos.
+  - `cedula`: Documento de identificación del usuario.
+  - `rol`: Rol del usuario, que puede ser `usuarioEstándar`, `usuarioVip`, o `administrador`.
+
+- ##### **Retorno:**
+
+  Un objeto con el siguiente formato:
+
+  - ```
+    mensaje
+    ```
+
+    : Mensaje indicando el resultado de la operación. Puede ser uno de los siguientes:
+
+    - `"El usuario ya existe"`: Si ya existe un usuario con el mismo `nick`, `cedula`, o `email`.
+    - `"El usuario fue creado"`: Si el usuario fue creado exitosamente en la base de datos y en el sistema de autenticación de MongoDB.
+
+  - `usuario`: El objeto de usuario que fue creado o el objeto que causó el conflicto (si ya existía).
