@@ -10,7 +10,7 @@ import { clientes } from "./js/module/clientes.js";
  */
 
 // Instanciar clases para interactuar con la API
-//    let pelicula = new peliculas();
+//let pelicula = new peliculas();
 //    let boleta = new boletas();
 //    let reserva = new reservar();
 //    let tarjeta = new tarjetas();
@@ -21,7 +21,7 @@ import { clientes } from "./js/module/clientes.js";
 //console.log(await pelicula.getAllPeliculasConLugarYDuracion());
 
 // ! Consultar información detallada sobre una película específica, incluyendo sinopsis
-// console.log(await pelicula.getPelicula("66a574a8e558765a8b22b046"));
+//console.log(await pelicula.getPelicula("66a574a8e558765a8b22b046"));
 
 //Compra de Boletos:
 /**
@@ -133,4 +133,4 @@ const data = {
 //console.log(await cliente.actualizarRol("66a868348da716e4dc8f9227", "usuarioVip"))
 
 // ! Permitir la consulta de todos los usuarios del sistema, con la posibilidad de filtrar por rol (VIP, estándar o administrador).
-console.log(await cliente.consultarUsuarios("usuarioEstandar"))
+//console.log(await cliente.consultarUsuarios("usuarioEstandar"))
