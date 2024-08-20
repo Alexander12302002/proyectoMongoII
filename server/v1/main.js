@@ -10,13 +10,13 @@ import { clientes } from "./js/module/clientes.js";
  */
 
 // Instanciar clases para interactuar con la API
-//let pelicula = new peliculas();
+//    let pelicula = new peliculas();
 //    let boleta = new boletas();
 //    let reserva = new reservar();
 //    let tarjeta = new tarjetas();
 //    let cliente = new clientes();
-//Selección de Películas
 
+//Selección de Películas
 // ! Consultar todas las películas disponibles en el catálogo con detalles como título, género, duración y horarios de proyección
 //console.log(await pelicula.getAllPeliculasConLugarYDuracion());
 
