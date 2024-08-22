@@ -1,7 +1,7 @@
-import { Connect } from "../../helpers/db/connect.js";
-import { ObjectId } from "mongodb";
+const Connect = require("../../helpers/db/connect.js");
+const { ObjectId } = require("mongodb");
 
-export class peliculas extends Connect{
+module.exports = class peliculas extends Connect{
     constructor(){
         if(typeof peliculas.instance === "object") {
             return peliculas.instance;
@@ -55,7 +55,7 @@ export class peliculas extends Connect{
                     }
                   }
             ]).toArray()
-            return res
+            return {mensaje: "Lista de peliculas", data: res}
         } catch (error){
             console.error('Error al insertar al realizar la consulta', error);
         }
@@ -85,3 +85,4 @@ export class peliculas extends Connect{
       }
     }
 }
+

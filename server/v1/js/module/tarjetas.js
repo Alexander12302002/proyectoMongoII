@@ -1,7 +1,7 @@
 import { Connect } from "../../helpers/db/connect.js";
 import { ObjectId } from "mongodb";
 
-export class tarjetas extends Connect{
+module.exports =  class tarjetas extends Connect{
     constructor(){
         if(typeof tarjetas.instance === "object") {
             return tarjetas.instance;

@@ -1,9 +1,9 @@
-import { Connect } from "../../helpers/db/connect.js";
-import { movimientos } from "./movimientos.js";
-import { asientos } from "./asientos.js";
-import { ObjectId } from "mongodb";
+const  movimientos = require('./movimientos')
+const  asientos = require("./asientos");
+const Connect = require("../../helpers/db/connect.js");
+const { ObjectId } = require("mongodb");
 
-export class boletas extends Connect{
+module.exports = class boletas extends Connect{
     constructor(){
         if(typeof boletas.instance === "object") {
             return boletas.instance;
