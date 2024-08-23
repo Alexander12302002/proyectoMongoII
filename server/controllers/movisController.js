@@ -1,4 +1,4 @@
-const  peliculas = require('../v1/js/module/peliculas')
+const peliculas = require('../v1/js/module/peliculas')
 
 const getAllMovis = async(req, res)=>{
     const obj = new peliculas();

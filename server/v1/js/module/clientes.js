@@ -32,14 +32,13 @@ module.exports =  class clientes extends Connect{
      * @param {string} usuario.nick - Nickname o nombre de usuario.
      * @param {string} usuario.email - Correo electrónico del usuario.
      * @param {string} usuario.telefono - Número de teléfono del usuario.
-     * @param {string} usuario.id_tipo_de_categoria - ID de la categoría del usuario.
      * @param {string} usuario.cedula - Cédula o documento de identidad del usuario.
      * @param {string} usuario.rol - Rol del usuario en la base de datos de MongoDB.
      * @returns {Object} Mensaje de éxito o error y el usuario creado.
      */
     async crearUsuario(usuario) {
          // Desestructurar los campos necesarios del objeto 'usuario'   
-        let { nombre, apellido, nick, email, telefono, id_tipo_de_categoria: id, cedula, rol } = usuario;
+        let { nombre, apellido, nick, email, telefono, cedula, rol } = usuario;
          // Verificar si ya existe un usuario con el mismo nick, cedula o email
         const condicion = await this.collection.find({
           $or: [
@@ -52,7 +51,6 @@ module.exports =  class clientes extends Connect{
         if (condicion.length) return { mensaje: "El usuario ya existe", usuario };
         // Insertar el nuevo usuario en la colección de usuarios
         const res = await this.collection.insertOne({
-            id_tipo_de_categoria: new ObjectId(id),
             nombre,
             apellido,
             nick,
@@ -62,7 +60,7 @@ module.exports =  class clientes extends Connect{
             rol
         });
         // Crear el usuario en el sistema de autenticación de MongoDB
-        const crearUsuario = await this.db.command({
+        await this.db.command({
             createUser: nick,
             pwd: `${cedula}`,
             roles: [
