@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import React, { useState, useEffect } from 'react';
+import Carrusel from './components/carrusel'
 
-function App() {
-  const [count, setCount] = useState(0)
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1
+};  
+
+const Peliculas = () => {
+  const [peliculas, setPeliculas] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/pelicula/v1')
+      .then(response => response.json())
+      .then(data => setPeliculas(data))
+      .catch(error => console.error('Error fetching movies:', error));
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <h1>Lista de Películas</h1>
+      {peliculas.length > 0 ? <Carrusel peliculas={peliculas} /> : <p>Cargando...</p>}
+    </div>
+  );
+};
 
-export default App
+export default Peliculas;

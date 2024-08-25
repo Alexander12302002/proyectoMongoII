@@ -50,12 +50,15 @@ module.exports = class peliculas extends Connect{
                       "lugar.nombre": 1,
                       "funcion.fecha_hora_inicio": 1,
                       "funcion.fecha_hora_fin": 1,
+                      bannerUrl: 1,
+                      genero: 1,
                       titulo: 1,
-                      duracion: 1
+                      duracion: 1,
+                      sinopsis: 1
                     }
                   }
             ]).toArray()
-            return {mensaje: "Lista de peliculas", data: res}
+            return res
         } catch (error){
             console.error('Error al insertar al realizar la consulta', error);
         }
