@@ -1,14 +1,6 @@
-import './App.css';
+import '../style/peliculas.css';
 import React, { useState, useEffect } from 'react';
-import Carrusel from './components/carrusel'
-
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1
-};  
+import Carrusel from './carrusel'
 
 const Peliculas = () => {
   const [peliculas, setPeliculas] = useState([]);
