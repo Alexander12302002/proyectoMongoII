@@ -1,7 +1,6 @@
 .main_container{
   width: 100%;
-  height: 100%;
-  margin-top: 40px;
+  height: 80%;
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -54,6 +53,7 @@
 
 .rightArrow{
   height: 60px;
+  width: 50px;
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
@@ -73,14 +73,66 @@
 
 .dot-container-item {
   margin-top: 3px ;
+  width: 20px;
   cursor: pointer;
   text-align: center;
 }
 
-div.active {
-  background: #ccc;
-  width: 15px;
+.dots-container .dot-container-item img{
   height: 15px;
-  border-radius: 50%;
+  width: 15px;
 }
 
+
+.dot-container-item.active img {
+  filter: invert(59%) sepia(79%) saturate(394%) hue-rotate(300deg) brightness(95%) contrast(100%);
+}
+
+.header-section{
+  display: flex;
+  width: 100%;
+  height: 50px;
+}
+
+.header-section .title{
+  display: flex;
+  padding-left: 10px;
+  align-items: center;
+}
+
+.header-section .see_all{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+  color: #FE0000;
+  text-decoration: none;
+}
+
+.info_container{
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.info_container .info{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.info h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo{
+  font-size: 30px;
+}
+
+.genero{
+  font-size: 15px;
+  color: #888888;
+}

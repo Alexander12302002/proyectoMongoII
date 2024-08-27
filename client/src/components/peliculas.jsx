@@ -1,5 +1,6 @@
 import '../style/peliculas.css';
 import React, { useState, useEffect, useRef } from 'react';
+import circleSvg from '../assets/circle.svg'
 
 
 const Peliculas = () => {
@@ -45,6 +46,10 @@ const Peliculas = () => {
 
   return (
     <>
+      <div class="header-section">
+        <span class="title">Now playing</span>
+        <a href="#" class="see_all">See all</a>
+      </div>
       <div className='main_container'> 
         <div className='slider_container'>
           <div className='leftArrow' onClick={() => scrollToImage('prev')}>&#10092;</div>
@@ -66,8 +71,18 @@ const Peliculas = () => {
                 <div key={idx}
                   className={`dot-container-item ${idx === currentIndex ? "active" : ""}`}
                   onClick={() => goToSlide(idx)}>
-                  &#9865;
+                  <img  src={circleSvg}/>
                 </div>))
+            }
+          </div>
+          <div className='info_container'>
+            {
+              peliculas.length > 0 && (
+                <div className='info'>
+                  <h1 className='titulo'>{peliculas[currentIndex].titulo}</h1>
+                  <h1 className='genero'>{peliculas[currentIndex].genero}</h1>
+                </div>
+              )
             }
           </div>
         </div>

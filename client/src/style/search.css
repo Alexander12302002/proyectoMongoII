@@ -19,23 +19,3 @@
     padding: 10px 10px 10px 40px; 
     box-sizing: border-box;
 }
-
-.header-section{
-    display: flex;
-    width: 100%;
-}
-
-.header-section .title{
-    display: flex;
-    padding-left: 10px;
-    align-items: center;
-}
-
-.header-section .see_all{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 10px;
-    color: #FE0000;
-    text-decoration: none;
-}
