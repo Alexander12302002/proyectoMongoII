@@ -37,6 +37,7 @@
 
 .user{
   grid-area: user;
+  padding: 10px;
 }
 
 .Search_movie{
