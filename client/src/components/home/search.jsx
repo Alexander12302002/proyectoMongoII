@@ -1,6 +1,6 @@
-import "../style/search.css";
+import "../../style/home/search.css";
 import React from 'react';
-import searchSvg from '../assets/search.svg'
+import searchSvg from '../../assets/search.svg'
 
 const Search = () =>{
 

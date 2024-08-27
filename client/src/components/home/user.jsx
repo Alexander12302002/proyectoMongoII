@@ -1,7 +1,7 @@
-import "../style/user.css";
+import "../../style/home/user.css";
 import React from 'react';
-import userSvg from "../assets/user.svg";
-import bellSvg from "../assets/bell.svg";
+import userSvg from "../../assets/user.svg";
+import bellSvg from "../../assets/bell.svg";
 
 const User = () => {
     return (

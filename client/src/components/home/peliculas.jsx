@@ -1,6 +1,6 @@
-import '../style/peliculas.css';
+import '../../style/home/peliculas.css';
 import React, { useState, useEffect, useRef } from 'react';
-import circleSvg from '../assets/circle.svg'
+import circleSvg from '../../assets/circle.svg'
 
 
 const Peliculas = () => {
