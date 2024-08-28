@@ -12,6 +12,11 @@ module.exports = class asientos extends Connect{
         return this;
     }
 
+    async getAllasientos(){
+        let res = this.collection.find({}, {}).toArray()
+        return res
+    }
+
     async getAsiento(id_asiento){
         try{
             let res = this.collection.find({_id: new ObjectId(id_asiento)},{}).toArray()

@@ -10,10 +10,10 @@ const Footer = () => {
         <>
             <footer className="container-footer">
                 <ul className="items">
-                    <li><img src={homeSvg}/></li>
-                    <li><img src={searchSvg}/></li>
-                    <li><img src={ticketsSvg}/></li>
-                    <li><img src={userSvg}/></li>
+                    <li><a href="../../../index.html"><img src={homeSvg}/></a></li>
+                    <li><a href="../../../index.html"><img src={searchSvg}/></a></li>
+                    <li><a href="../../../public/views/tickets.html"><img src={ticketsSvg}/></a></li>
+                    <li><a href="../../#"><img src={userSvg}/></a></li>
                 </ul>
             </footer>
         </>

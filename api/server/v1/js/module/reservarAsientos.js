@@ -11,9 +11,14 @@ module.exports =  class reservar extends Connect{
             return reservar.instance;
         }
         super();
-        this.collection = this.db.collection("reserva_asientos");
+        this.collection = this.db.collection("reservar_asiento");
         reservar.instance = this;
         return this;
+    }
+
+    async getAsientosReservadosConfirmados(){
+        let res = this.collection.find({estado: "confirmada"}, {}).toArray()
+        return res
     }
 
     /**

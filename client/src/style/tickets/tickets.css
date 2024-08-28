@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, 0.87);
+    background: #121212;
+}
+
+.container-menu {
+    display: flex;
+    height: 70px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+}
+
+.container-menu img{
+    width: 25px;
+    height: 25px;
+}
+
+.container-seating .container-screen{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.container-seating .container-screen img{
+    width: 300px;
+}
