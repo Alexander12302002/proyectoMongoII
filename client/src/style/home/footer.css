@@ -1,0 +1,21 @@
+.container-footer{
+    width: 100%;
+    height: 70px;
+    background: #232323;
+    border-radius: 20px;
+}
+
+.items{
+    display: flex;
+}
+
+.items li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.items img{
+    width: 30px;
+    height: 30px;
+}

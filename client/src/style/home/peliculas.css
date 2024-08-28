@@ -39,10 +39,10 @@
 
 .leftArrow{
   height: 60px;
+  width: 60px;
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  right: -15px;
   font-size: 35px;
   font-weight: 700;
   color: #fff;
@@ -53,11 +53,11 @@
 
 .rightArrow{
   height: 60px;
-  width: 50px;
+  width: 60px;
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  left: 305px;
+  right: -30px;
   font-size: 35px;
   font-weight: 700;
   color: #fff;

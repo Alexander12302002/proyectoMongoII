@@ -3,18 +3,31 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const ComingSoon = () =>{
     const [pelicula, setPelicula] = useState(null);
+    const [peliculas, setPeliculas] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/pelicula/v1')
+          .then(response => response.json())
+          .then(data => setPeliculas(data))
+          .catch(error => console.error('Error fetching movies:', error));
+      }, []);
 
     useEffect(() => {
         fetch('http://localhost:3000/pelicula/v0')
           .then(response => response.json())
           .then(data => {
             if (data.length > 0) {
-                const randomIndex = Math.floor(Math.random() * data.length);
-                setPelicula(data[randomIndex]);
+                const peliculasIds = new Set(peliculas.map(pelicula => pelicula.titulo));
+                const peliculasFiltradas = data.filter(pelicula => !peliculasIds.has(pelicula.titulo));
+
+                if (peliculasFiltradas.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * peliculasFiltradas.length);
+                    setPelicula(peliculasFiltradas[randomIndex]);
+                }
             }
           })
           .catch(error => console.error('Error fetching movies:', error));
-    }, []);
+    }, [peliculas]);
 
     if (!pelicula) {
         return <div>Loading...</div>;
