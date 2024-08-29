@@ -1,0 +1,84 @@
+.container-menu {
+    display: flex;
+    height: 70px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+}
+
+.container-menu img{
+    width: 25px;
+    height: 25px;
+}
+
+.container-img{
+    display: flex;
+    justify-content: center;
+    margin: 10px;   
+    height: 300px;
+}
+
+.container-img img{
+    height: 300px;
+}
+
+.detalle-pelicula h2{
+    padding: 10px;
+}
+
+.container-trailer{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 30px;
+}
+
+.container-trailer button{
+    width: 110px;
+    background: red;
+    border-radius: 10px;
+    border: none;
+}
+
+.container-trailer button img{
+    padding-right: 5px;
+}
+
+.container-sinopsis{
+    margin: 10px;
+}
+
+.container-cast{
+    display: flex;
+}
+
+.container-cast img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.container-cast ul{
+    display: flex;
+    list-style: none;
+    width: 200px;
+}
+
+.container-cast ul li{
+    margin: 10px;
+}
+
+.container-actors{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.container-actor{
+    display: flex;
+    align-items: center;
+}
+
+.info-cast h5{
+    color: gray;
+}

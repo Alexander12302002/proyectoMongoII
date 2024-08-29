@@ -11,7 +11,19 @@ const getAllMovis = async(req, res)=>{
     res.status(201).json(await obj.getAllPeliculas())
 }
 
+const getMovie = async (req, res) => {
+    const obj = new peliculas();
+    const nombrePelicula = req.query.nombre; // Obtener el nombre de la película desde el query param
+    let resModel = await obj.getPelicula(nombrePelicula);
+    if (resModel) {
+        res.status(200).json(resModel);
+    } else {
+        res.status(404).json({ message: 'Película no encontrada' });
+    }
+};
+
 module.exports = {
     getMovisInBillboard,
     getAllMovis,
+    getMovie
 }

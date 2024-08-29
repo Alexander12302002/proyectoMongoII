@@ -1,7 +1,7 @@
 .header-section{
     display: flex;
-    width: 100%;
-    height: 50px;
+    height: 20px;
+    justify-content: space-between;
   }
   
   .header-section .title{
@@ -24,8 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    height: 150px;
+    padding-top: 15px;
 }
 
 .movie-card {

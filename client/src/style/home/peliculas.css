@@ -11,8 +11,6 @@
 }
 
 .container_images{
-  width: 100%;
-  height: 100%;
   border-radius: 20px;
   border: 1px solid #eee;
   overflow: hidden;
@@ -90,19 +88,19 @@
   filter: invert(59%) sepia(79%) saturate(394%) hue-rotate(300deg) brightness(95%) contrast(100%);
 }
 
-.header-section{
+.header-section-1{
   display: flex;
-  width: 100%;
   height: 50px;
+  justify-content: space-between;
 }
 
-.header-section .title{
+.header-section-1 .title{
   display: flex;
   padding-left: 10px;
   align-items: center;
 }
 
-.header-section .see_all{
+.header-section-1 .see_all{
   display: flex;
   justify-content: flex-end;
   align-items: center;

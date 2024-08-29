@@ -1,17 +1,20 @@
 import '../../style/home/peliculas.css';
 import React, { useState, useEffect, useRef } from 'react';
 import circleSvg from '../../assets/circle.svg'
+import { useNavigate  } from 'react-router-dom';
 
 
 const Peliculas = () => {
   const listRef = useRef();
   const [peliculas, setPeliculas] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
+
 
   useEffect(() =>{
     const listNode = listRef.current
     const imgNode = listNode.querySelectorAll('li > img')[currentIndex]
-
+    
     if(imgNode){
       imgNode.scrollIntoView({
         behavior: "smooth"
@@ -44,9 +47,13 @@ const Peliculas = () => {
     setCurrentIndex(slideIndex);
   }
 
+  const handleImageClick = (titulo) => {
+    navigate(`/pelicula/detalle?nombre=${encodeURIComponent(titulo)}`);
+  };
+
   return (
     <>
-      <div class="header-section">
+      <div class="header-section-1">
         <span class="title">Now playing</span>
         <a href="#" class="see_all">See all</a>
       </div>
@@ -59,7 +66,11 @@ const Peliculas = () => {
                 {
                   peliculas.map((item, index) =>{
                     return <li key={item.id || index}>
-                      <img src={item.bannerUrl} alt={`Banner of ${item.title}`} />
+                  <img 
+                    src={item.bannerUrl} 
+                    alt={`Banner of ${item.titulo}`} 
+                    onClick={() => handleImageClick(item.titulo)} // Utiliza el nombre de la película
+                  />
                     </li>
                   })
                 }

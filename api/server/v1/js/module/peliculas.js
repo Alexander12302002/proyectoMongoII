@@ -72,19 +72,19 @@ module.exports = class peliculas extends Connect{
      * @param {string} idPelicula - El ID de la película que se desea obtener.
      * @returns {Promise<Array>} Un arreglo que contiene la película encontrada, o un arreglo vacío si no se encuentra ninguna película con el ID proporcionado.
      */
-    async  getPelicula(idPelicula){
-      try{
-        let res = await this.collection.find({ 
-          _id: new ObjectId(idPelicula)
-        },{projection:
-            { 
-              _id: 0,
-              duracion: 0, 
-              genero: 0
-            }}).toArray()
-        return res
-      } catch (error){
-        console.log("Error en la consult, verifique el id", error)
+    async getPelicula(nombrePelicula) {
+      try {
+        let res = await this.collection.findOne({
+          titulo: { $regex: new RegExp(nombrePelicula, 'i') } // Búsqueda case-insensitive
+        }, {
+          projection: {
+            _id: 0,
+            duracion: 0,
+          }
+        });
+        return res;
+      } catch (error) {
+        console.log("Error en la consulta, verifique el nombre", error);
       }
     }
 }

@@ -1,9 +1,15 @@
 import '../../style/home/comingSoon.css';
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate  } from 'react-router-dom';
 
 const ComingSoon = () =>{
     const [pelicula, setPelicula] = useState(null);
     const [peliculas, setPeliculas] = useState([]);
+    const navigate = useNavigate();
+
+    const handleImageClick = (titulo) => {
+        navigate(`/pelicula/detalle?nombre=${encodeURIComponent(titulo)}`);
+    };
 
     useEffect(() => {
         fetch('http://localhost:3000/pelicula/v1')
@@ -42,7 +48,11 @@ const ComingSoon = () =>{
         <div className="container_soon">
                 <div className="movie-card">
                     <div className="container_imagen">
-                        <img src={pelicula.bannerUrl} alt={pelicula.titulo} />
+                        <img 
+                        src={pelicula.bannerUrl} 
+                        alt={`Banner of ${pelicula.titulo}`} 
+                        onClick={() => handleImageClick(pelicula.titulo)} // Utiliza el nombre de la película
+                        />
                     </div>
                     <div className="container_info">
                         <h1 className="title">{pelicula.titulo}</h1>
