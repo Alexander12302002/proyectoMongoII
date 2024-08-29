@@ -46,7 +46,7 @@ module.exports = class peliculas extends Connect{
                   },
                   {
                     $project: {
-                      _id: 0,
+                      _id: 1,
                       "lugar.nombre": 1,
                       "funcion.fecha_hora_inicio": 1,
                       "funcion.fecha_hora_fin": 1,
@@ -78,7 +78,7 @@ module.exports = class peliculas extends Connect{
           titulo: { $regex: new RegExp(nombrePelicula, 'i') } // Búsqueda case-insensitive
         }, {
           projection: {
-            _id: 0,
+            _id: 1,
             duracion: 0,
           }
         });

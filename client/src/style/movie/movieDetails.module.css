@@ -43,6 +43,11 @@
     padding-right: 5px;
 }
 
+.container-trailer button a{
+    text-decoration: none;
+    color: #fff;
+}
+
 .container-sinopsis{
     margin: 10px;
 }
