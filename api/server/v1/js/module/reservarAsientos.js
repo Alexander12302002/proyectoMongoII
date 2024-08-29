@@ -16,9 +16,15 @@ module.exports =  class reservar extends Connect{
         return this;
     }
 
-    async getAsientosReservadosConfirmados(){
-        let res = this.collection.find({estado: "confirmada"}, {}).toArray()
-        return res
+    async getAsientosReservadosConfirmados(idFuncion = null) {
+        const objectId = new ObjectId(idFuncion);
+        try {
+            const res = await this.collection.find({ estado: "confirmada", id_funcion: objectId}, {}).toArray();
+            return res;
+        } catch (error) {
+            console.error('Error fetching confirmed reserved seats:', error);
+            throw error;
+        }
     }
 
     /**

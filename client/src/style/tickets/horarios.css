@@ -1,0 +1,43 @@
+
+
+.horarios-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: black;
+    margin: 10px;
+  }
+  
+  .horario-card {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin: 10px;
+    height: 100px;
+    text-align: center;
+    flex-basis: calc(33.333% - 30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .no-horarios {
+    font-size: 16px;
+    color: #888;
+    text-align: center;
+    width: 100%;
+  }
+
+  .horario-hora{
+    padding-top: 10px;
+  }
+
+  .horario-numero{
+    padding-top: 10px;
+  }
+
+  .horario-card.selected {
+    color: #fff;
+    border: 2px solid red; 
+    background-color: red; 
+  }
+  

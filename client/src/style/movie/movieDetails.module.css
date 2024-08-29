@@ -87,3 +87,44 @@
 .info-cast h5{
     color: gray;
 }
+
+.container-cines{
+    margin: 10px;
+}
+
+.container-cine{
+    background: #272727;
+    border-radius: 25px;
+}
+
+.container-info{
+    padding: 10px;
+}
+
+.container-info h3{
+    padding-left: 10px;
+}
+
+
+.container-info h4{
+    padding-left: 10px;
+}
+
+.container-book{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+
+.container-book button{
+    width: 300px;
+    height: 50px;
+    background: red;
+    border: none;
+    border-radius: 10px;
+}
+
+.selected {
+    border: 2px solid red;
+    border-radius: 35px;
+  }
