@@ -1,7 +1,7 @@
 import '../../style/tickets/asientos.css';
 import React, { useState, useEffect } from 'react';
 
-const Asientos = ({ cineId, onPriceUpdate }) => {
+const Asientos = ({ cineId, onPriceUpdate, onSeatsSelect }) => {
   const [asientos, setAsientos] = useState([]);
   const [asientosReservados, setAsientosReservados] = useState([]);
   const [asientosSeleccionados, setAsientosSeleccionados] = useState(new Set());
@@ -38,6 +38,7 @@ const Asientos = ({ cineId, onPriceUpdate }) => {
       onPriceUpdate(prevTotal => prevTotal - precioAsiento);
     }
     setAsientosSeleccionados(updatedSeleccionados);
+    onSeatsSelect(Array.from(updatedSeleccionados));
     console.log(`Selected seats: ${Array.from(updatedSeleccionados).join(', ')}`);
   };
 

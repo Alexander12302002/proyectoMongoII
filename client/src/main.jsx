@@ -8,6 +8,7 @@ import Footer from './components/home/footer.jsx';
 import Tickets from './components/tickets/tickets.jsx';
 import styles from './style/home/index.module.css';
 import MovieDetails from './components/movie/MovieDetails.jsx';
+import CompraTickets from './components/tickets/compraTickets.jsx';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         } />
         <Route path="/tickets" element={<Tickets />} />
         <Route path="/pelicula/:titulo" element={<MovieDetails />} />
+        <Route path="/compra-tickets" element={<CompraTickets />} />
       </Routes>
     </Router>
   );

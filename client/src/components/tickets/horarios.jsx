@@ -1,7 +1,7 @@
 import '../../style/tickets/horarios.css';
 import React, { useState, useEffect } from 'react';
 
-const Horarios = ({ cineId }) => {
+const Horarios = ({ cineId, onHorarioSelect }) => {
     const [horarios, setHorarios] = useState([]);
     const [selectedHorario, setSelectedHorario] = useState(null);
 
@@ -22,6 +22,7 @@ const Horarios = ({ cineId }) => {
 
   const handleCardClick = (horario) => {
     setSelectedHorario(horario);
+    onHorarioSelect(horario);
     console.log('Horario seleccionado:', horario);
   };
 

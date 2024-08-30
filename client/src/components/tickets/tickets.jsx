@@ -11,11 +11,28 @@ import Comprar from './compra'
 
 const Tickets = () => {
     const location = useLocation();
-    const cineId = location.state?.cineId;
+    const [cineId, setCineId] = useState(location.state?.cineId || null);
     const [precioTotal, setPrecioTotal] = useState(0);
+    const [asientosSeleccionados, setAsientosSeleccionados] = useState([]);
+    const [horarioSeleccionado, setHorarioSeleccionado] = useState(null)
 
+
+    useEffect(() => {
+      if (location.state?.cineId) {
+          setCineId(location.state.cineId);
+      }
+    }, [location.state]);
+    
     const handlePriceUpdate = (nuevoPrecio) => {
       setPrecioTotal(nuevoPrecio);
+    };
+  
+    const handleSeatsSelect = (asientos) => {
+      setAsientosSeleccionados(asientos);
+    };
+  
+    const handleHorarioSelect = (horario) => {
+      setHorarioSeleccionado(horario);
     };
 
     return (
@@ -35,13 +52,13 @@ const Tickets = () => {
         <div className={styles['container-screen']}>
           <img src={screenSvg} alt="Screen" />
         </div>
-        <Asientos cineId={cineId} onPriceUpdate={handlePriceUpdate}/>
+        <Asientos cineId={cineId} onPriceUpdate={handlePriceUpdate} onSeatsSelect={handleSeatsSelect}/>
       </div>
       <div className={styles['container-functions']}>
-        <Horarios cineId={cineId} />
+        <Horarios cineId={cineId} onHorarioSelect={handleHorarioSelect}/>
       </div>
       <div className={styles['container-preci']}>
-        <Comprar precioTotal={precioTotal} />
+        <Comprar cineId={cineId} precioTotal={precioTotal} asientosSeleccionados={asientosSeleccionados} horarioSeleccionado={horarioSeleccionado} />
       </div>
     </>
     )

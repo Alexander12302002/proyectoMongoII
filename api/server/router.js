@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const path = require('path');
-const { getAllMovis, getMovisInBillboard, getMovie} = require('./controllers/movisController');
+const { getAllMovis, getMovisInBillboard, getMovie, getMovieForId} = require('./controllers/movisController');
 const {getAllAsientos} = require('./controllers/asientosController')
 const createUser  = require('./controllers/userController');
 const {getAllFuncionCine, getFuncionAsientos, getFuncion} = require('./controllers/funcionesController')
@@ -14,6 +14,7 @@ router.get("/", (req, res)=>{
 router.get('/pelicula/v0', getAllMovis)
 router.get('/pelicula/v1', getMovisInBillboard)
 router.get('/pelicula/v2', getMovie)
+router.get('/pelicula/v3', getMovieForId)
 router.get('/funciones/v0', getAllFuncionCine)
 router.get('/funciones/v1', getFuncionAsientos)
 router.get('/funciones/v2', getFuncion)

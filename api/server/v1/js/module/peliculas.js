@@ -87,5 +87,21 @@ module.exports = class peliculas extends Connect{
         console.log("Error en la consulta, verifique el nombre", error);
       }
     }
+
+    async getPeliculaForId(id_pelicula){
+      try {
+        if (!ObjectId.isValid(id_pelicula)) {
+            throw new Error('ID de función no válido');
+        }
+
+        const objectId = new ObjectId(id_pelicula);
+
+        let res = await this.collection.find({ _id: objectId }).toArray();
+        return res;
+    } catch (error) {
+        console.log("No se encuentra la función, verifique el ID", error);
+        return null; 
+    }
+    }
 }
 

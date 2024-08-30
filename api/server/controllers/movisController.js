@@ -22,8 +22,20 @@ const getMovie = async (req, res) => {
     }
 };
 
+const getMovieForId = async (req, res) => {
+    const obj = new peliculas();
+    const id_pelicula = req.query.id; 
+    let resModel = await obj.getPeliculaForId(id_pelicula);
+    if (resModel) {
+        res.status(200).json(resModel);
+    } else {
+        res.status(404).json({ message: 'Película no encontrada' });
+    }
+};
+
 module.exports = {
     getMovisInBillboard,
     getAllMovis,
-    getMovie
+    getMovie,
+    getMovieForId
 }
