@@ -13,10 +13,8 @@ const Asientos = ({ cineId, onPriceUpdate, onSeatsSelect }) => {
         fetch(`http://localhost:3000/asientosReserva/v0?id=${cineId}`).then(response => response.json())
       ])
       .then(([funcionesData, reservasData]) => {
-        // Obtener los asientos asignados desde funcionesData
         const asientosAsignados = funcionesData[0].asientosAsignados || [];
         setAsientos(asientosAsignados);
-        // Obtener los asientos reservados desde reservasData
         const reservedSeats = reservasData.flatMap(reserva => reserva.asientos_reservados);
         setAsientosReservados(reservedSeats);
       })

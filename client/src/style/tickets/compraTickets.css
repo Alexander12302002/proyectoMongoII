@@ -3,7 +3,7 @@
     color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    max-width: 400px;
+    height: 100vh;
     margin: 0 auto;
     font-family: 'Arial', sans-serif;
   }
@@ -46,19 +46,28 @@
   }
   
   .order-details {
-    background-color: #2c2c2c;
+    background-color: #121212;
     padding: 15px;
     border-radius: 8px;
+    height: 50vh;
+  }
+
+  .order-details div{
+    margin: 10px;
+    color: gray;
+    border-bottom: gray 1px solid;
+    padding-bottom: 10px;
+  }
+
+  .orderNumber, 
+  .TICKET, 
+  .regular-seat, 
+  .service-fee{
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
   }
   
-  .payment-method {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #3c3c3c;
-    padding: 10px;
-    border-radius: 8px;
-  }
   
   .buy-ticket-button {
     background-color: #ff0000;

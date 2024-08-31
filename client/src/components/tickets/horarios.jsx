@@ -23,8 +23,8 @@ const Horarios = ({ cineId, onHorarioSelect }) => {
   const handleCardClick = (horario) => {
     setSelectedHorario(horario);
     onHorarioSelect(horario);
-    console.log('Horario seleccionado:', horario);
-  };
+};
+
 
 
   return (

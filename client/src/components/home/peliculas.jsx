@@ -69,7 +69,7 @@ const Peliculas = () => {
                   <img 
                     src={item.bannerUrl} 
                     alt={`Banner of ${item.titulo}`} 
-                    onClick={() => handleImageClick(item.titulo)} // Utiliza el nombre de la película
+                    onClick={() => handleImageClick(item.titulo)}
                   />
                     </li>
                   })

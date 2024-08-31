@@ -6,24 +6,27 @@ const Comprar = ({ cineId ,precioTotal, asientosSeleccionados, horarioSelecciona
     const navigate = useNavigate();
 
     const handleBuyTickets = () => {
-      // Verifica que los valores sean los esperados
+      if (!horarioSeleccionado) {
+          alert('Por favor, selecciona un horario antes de continuar.');
+          return;
+      }
+      
       console.log('Datos de compra:', {
-        precioTotal,
-        asientosSeleccionados,
-        horarioSeleccionado,
-        cineId
-      });
-  
-      // Navega a la página de compra de tickets con los datos de estado
-      navigate('/compra-tickets', {
-        state: {
           precioTotal,
           asientosSeleccionados,
           horarioSeleccionado,
           cineId
-        }
       });
-    };
+  
+      navigate('/compra-tickets', {
+          state: {
+              precioTotal,
+              asientosSeleccionados,
+              horarioSeleccionado,
+              cineId
+          }
+      });
+  };
   return (
     <div className="comprar">
       <div className="total-price">
