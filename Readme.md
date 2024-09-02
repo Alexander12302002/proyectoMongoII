@@ -1,3 +1,29 @@
+1. ### **Inicializar Proyecto**
+
+   1. Entra a la carpeta `client` e instala todas las dependencias con el siguiente comando:
+
+      ```bash
+      npm install
+      ```
+
+   2. Inicializa la parte del frontend con:
+
+      ```bash
+      npm run dev
+      ```
+
+   3. En otra terminal, navega a la carpeta `api` e instala nuevamente las dependencias con:
+
+      ```bash
+      npm install
+      ```
+
+   4. Inicializa la parte del backend con:
+
+      ```bash
+      npm run dev
+      ```
+
 ### **Requisitos Funcionales**
 
 1. Selección de Películas:
@@ -22,7 +48,6 @@
   **funcion.fecha_hora_fin**: La fecha y hora de fin de la función.
   **titulo**: El título de la película.
   **duracion**: La duración de la película.
-  
 
   - **API para Obtener Detalles de Película:** Permitir la consulta de información detallada sobre una película específica, incluyendo sinopsis.
 
@@ -79,8 +104,8 @@
 
 Un booleano que indica si el asiento ya ha sido comprado:
 
-  - `true`: El asiento ya ha sido comprado.
-  - `false`: El asiento está disponible.
+- `true`: El asiento ya ha sido comprado.
+- `false`: El asiento está disponible.
 
 3. Compra de Boletos:
 
@@ -134,7 +159,7 @@ Un booleano que indica si el asiento ya ha sido comprado:
 - ##### Retorno:
 
   Un mensaje que indica el estado de la tarjeta o un mensaje de error en caso de problemas:
-  
+
   - `La tarjeta se encuentra: <estado>`: Mensaje indicando el estado actual de la tarjeta asociada al cliente.
   - `No se encontraron tarjetas para el id proporcionado.`: Mensaje si no se encuentran tarjetas asociadas al ID proporcionado.
   - `Error al buscar la tarjeta. Verifique el id.`: Mensaje de error si ocurre un problema durante la búsqueda en la base de datos.
