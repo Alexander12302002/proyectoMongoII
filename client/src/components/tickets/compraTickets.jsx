@@ -87,7 +87,7 @@ const CompraTickets = () => {
       if (response.ok) {
         const result = await response.json();
         console.log('Compra realizada con éxito:', result);
-        navigate('/confirmacion', { state: { orderNumber } });
+        navigate('/', { state: { orderNumber } });
       } else {
         console.error('Error al realizar la compra:', await response.text());
       }
